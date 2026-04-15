@@ -67,12 +67,14 @@ export function CTASection() {
             {/* Input and button */}
             <form onSubmit={handleSubmit} className="relative flex w-full flex-col sm:flex-row">
               <input
+                id="newsletter-email"
                 type="email"
                 placeholder="Enter your email address ..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 px-5 sm:px-6 py-3.5 sm:py-4 bg-[#FDF8F1] border border-[#222222] sm:border-r-0 rounded-t-[10px] sm:rounded-t-none sm:rounded-l-[10px] text-[#222222] placeholder:text-[#222222]/50 focus:outline-none text-[15px] sm:text-base"
+                autoComplete="email"
+                className="flex-1 scroll-mt-28 px-5 sm:px-6 py-3.5 sm:py-4 bg-[#FDF8F1] border border-[#222222] sm:border-r-0 rounded-t-[10px] sm:rounded-t-none sm:rounded-l-[10px] text-[#222222] placeholder:text-[#222222]/50 focus:outline-none text-[15px] sm:text-base"
               />
               <button
                 type="submit"

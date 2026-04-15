@@ -9,6 +9,16 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const closeMobileMenu = () => setMobileMenuOpen(false)
 
+  const goToWaitlistSignup = () => {
+    const el = document.getElementById("waitlist-email")
+    if (!el) return
+    el.scrollIntoView({ behavior: "smooth", block: "center" })
+    window.setTimeout(() => {
+      el.focus({ preventScroll: true })
+    }, 350)
+    closeMobileMenu()
+  }
+
   return (
     <header className="sticky top-0 z-50 bg-cream border-b border-foreground/10">
       <div className="flex items-center h-14 sm:h-16">
@@ -38,8 +48,12 @@ export function Header() {
           <button className="h-16 w-16 flex items-center justify-center border-l border-foreground/10 hover:bg-foreground/5 transition-colors">
             <Search className="w-5 h-5 text-foreground" />
           </button>
-          <Button className="h-16 px-8 rounded-none bg-foreground text-cream hover:bg-foreground/90 font-semibold uppercase tracking-wide">
-            Sign In
+          <Button
+            type="button"
+            onClick={goToWaitlistSignup}
+            className="h-16 px-8 rounded-none bg-foreground text-cream hover:bg-foreground/90 font-semibold uppercase tracking-wide"
+          >
+            Sign Up
           </Button>
         </div>
 
@@ -70,8 +84,12 @@ export function Header() {
               FAQ
             </Link>
             <div className="flex flex-col gap-2 pt-4 border-t border-foreground/10">
-              <Button className="bg-foreground text-cream hover:bg-foreground/90 font-semibold uppercase tracking-wide">
-                Sign In
+              <Button
+                type="button"
+                onClick={goToWaitlistSignup}
+                className="bg-foreground text-cream hover:bg-foreground/90 font-semibold uppercase tracking-wide"
+              >
+                Sign Up
               </Button>
             </div>
           </nav>

@@ -67,12 +67,14 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-foreground translate-x-2 translate-y-2 rounded-[10px]" />
             <form onSubmit={handleSubmit} className="relative flex w-full flex-col sm:flex-row">
               <input
+                id="waitlist-email"
                 type="email"
                 placeholder="Enter your email address ..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 px-5 sm:px-6 py-3.5 sm:py-4 bg-cream border border-foreground sm:border-r-0 rounded-t-[10px] sm:rounded-t-none sm:rounded-l-[10px] text-foreground placeholder:text-foreground/50 focus:outline-none text-[15px] sm:text-base"
+                autoComplete="email"
+                className="flex-1 scroll-mt-28 px-5 sm:px-6 py-3.5 sm:py-4 bg-cream border border-foreground sm:border-r-0 rounded-t-[10px] sm:rounded-t-none sm:rounded-l-[10px] text-foreground placeholder:text-foreground/50 focus:outline-none text-[15px] sm:text-base"
               />
               <button
                 type="submit"
