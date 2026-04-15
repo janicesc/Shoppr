@@ -1,0 +1,166 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #F5F0E8;
+  --foreground: #1a1a1a;
+  --card: #FFFFFF;
+  --card-foreground: #1a1a1a;
+  --popover: #FFFFFF;
+  --popover-foreground: #1a1a1a;
+  --primary: #1a1a1a;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F0E8;
+  --secondary-foreground: #1a1a1a;
+  --muted: #F5F0E8;
+  --muted-foreground: #666666;
+  --accent: #F5C643;
+  --accent-foreground: #1a1a1a;
+  --destructive: #ef4444;
+  --destructive-foreground: #fef2f2;
+  --border: #e5e0d8;
+  --input: #e5e0d8;
+  --ring: #3D7B6C;
+  --chart-1: #3D7B6C;
+  --chart-2: #F5C643;
+  --chart-3: #F06292;
+  --chart-4: #F5F0E8;
+  --chart-5: #1a1a1a;
+  --radius: 0.625rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #3D7B6C;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5F0E8;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e5e0d8;
+  --sidebar-ring: #3D7B6C;
+  
+  /* Custom Shoppr colors */
+  --teal: #3D7B6C;
+  --teal-dark: #2d5a50;
+  --cream: #F5F0E8;
+  --cream-dark: #EBE5DB;
+  --yellow: #F5C643;
+  --pink: #F06292;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #F5F0E8;
+  --card: #262626;
+  --card-foreground: #F5F0E8;
+  --popover: #262626;
+  --popover-foreground: #F5F0E8;
+  --primary: #F5F0E8;
+  --primary-foreground: #1a1a1a;
+  --secondary: #333333;
+  --secondary-foreground: #F5F0E8;
+  --muted: #333333;
+  --muted-foreground: #999999;
+  --accent: #F5C643;
+  --accent-foreground: #1a1a1a;
+  --destructive: #dc2626;
+  --destructive-foreground: #fef2f2;
+  --border: #333333;
+  --input: #333333;
+  --ring: #3D7B6C;
+  --chart-1: #3D7B6C;
+  --chart-2: #F5C643;
+  --chart-3: #F06292;
+  --chart-4: #333333;
+  --chart-5: #F5F0E8;
+  --sidebar: #262626;
+  --sidebar-foreground: #F5F0E8;
+  --sidebar-primary: #3D7B6C;
+  --sidebar-primary-foreground: #F5F0E8;
+  --sidebar-accent: #333333;
+  --sidebar-accent-foreground: #F5F0E8;
+  --sidebar-border: #333333;
+  --sidebar-ring: #3D7B6C;
+}
+
+@theme inline {
+  --font-sans: 'DM Sans', 'Geist', 'Geist Fallback';
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-teal: var(--teal);
+  --color-teal-dark: var(--teal-dark);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-yellow: var(--yellow);
+  --color-pink: var(--pink);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--teal);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal-dark);
+}
+
+/* Font smoothing */
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
