@@ -82,22 +82,22 @@ export function FeaturesSection() {
                 {feature.type === "double" && feature.images ? (
                   <div className="flex gap-2.5 sm:gap-4 items-end">
                     {/* Left Phone - Style Stats */}
-                    <div className="w-[7.5rem] sm:w-48 rounded-[1.5rem] overflow-hidden shadow-xl">
+                    <div className="w-[8.25rem] sm:w-52 rounded-[1.5rem] overflow-hidden shadow-xl">
                       <Image
                         src={feature.images[0]}
                         alt="Style stats screen"
-                        width={220}
-                        height={455}
+                        width={236}
+                        height={488}
                         style={{ width: "100%", height: "auto" }}
                       />
                     </div>
                     {/* Right Phone - Cost per Wear */}
-                    <div className="w-[7.5rem] sm:w-48 rounded-[1.5rem] overflow-hidden shadow-xl">
+                    <div className="w-[8.25rem] sm:w-52 rounded-[1.5rem] overflow-hidden shadow-xl">
                       <Image
                         src={feature.images[1]}
                         alt="Cost per wear screen"
-                        width={220}
-                        height={455}
+                        width={236}
+                        height={488}
                         style={{ width: "100%", height: "auto" }}
                       />
                     </div>
