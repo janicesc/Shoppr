@@ -77,7 +77,7 @@ export function HeroSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-cream border border-foreground text-foreground font-bold uppercase tracking-wide text-sm hover:bg-pink hover:text-cream active:bg-pink active:text-cream focus-visible:bg-pink focus-visible:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-b-[10px] sm:rounded-b-none sm:rounded-r-[10px]"
+                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#FF95C9] border border-foreground text-[#FDF8F1] font-bold uppercase tracking-wide text-sm hover:bg-teal hover:text-[#FDF8F1] active:bg-teal active:text-[#FDF8F1] focus-visible:bg-teal focus-visible:text-[#FDF8F1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-b-[10px] sm:rounded-b-none sm:rounded-r-[10px]"
               >
                 {isSubmitting ? "Joining..." : "Join Waitlist"}
               </button>
