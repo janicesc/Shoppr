@@ -66,13 +66,13 @@ export function FeaturesSection() {
             >
               {/* Content */}
               <div className="flex-1 lg:max-w-lg">
-                <div className={`w-16 h-16 sm:w-20 sm:h-20 ${feature.color} rounded-2xl flex items-center justify-center mb-5 sm:mb-7`}>
-                  <feature.icon className="w-8 h-8 sm:w-10 sm:h-10 text-foreground" />
+                <div className={`w-14 h-14 sm:w-[4.25rem] sm:h-[4.25rem] ${feature.color} rounded-2xl flex items-center justify-center mb-4 sm:mb-6`}>
+                  <feature.icon className="w-7 h-7 sm:w-8 sm:h-8 text-foreground" />
                 </div>
-                <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black text-foreground mb-4 sm:mb-5 uppercase tracking-tight text-balance">
+                <h3 className="text-[1.65rem] sm:text-[1.85rem] lg:text-[2.05rem] font-black text-foreground mb-3 sm:mb-4 uppercase tracking-tight text-balance leading-tight">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground text-base sm:text-2xl leading-relaxed max-w-xl">
+                <p className="text-muted-foreground text-[0.95rem] sm:text-lg lg:text-xl leading-relaxed max-w-xl">
                   {feature.description}
                 </p>
               </div>
@@ -80,35 +80,35 @@ export function FeaturesSection() {
               {/* Phone Mockup(s) */}
               <div className="flex-1 flex justify-center">
                 {feature.type === "double" && feature.images ? (
-                  <div className="flex gap-3 sm:gap-5 items-end">
+                  <div className="flex gap-2.5 sm:gap-4 items-end">
                     {/* Left Phone - Style Stats */}
-                    <div className="w-36 sm:w-56 rounded-[1.5rem] overflow-hidden shadow-xl">
+                    <div className="w-[7.5rem] sm:w-48 rounded-[1.5rem] overflow-hidden shadow-xl">
                       <Image
                         src={feature.images[0]}
                         alt="Style stats screen"
-                        width={280}
-                        height={580}
+                        width={220}
+                        height={455}
                         style={{ width: "100%", height: "auto" }}
                       />
                     </div>
                     {/* Right Phone - Cost per Wear */}
-                    <div className="w-36 sm:w-56 rounded-[1.5rem] overflow-hidden shadow-xl">
+                    <div className="w-[7.5rem] sm:w-48 rounded-[1.5rem] overflow-hidden shadow-xl">
                       <Image
                         src={feature.images[1]}
                         alt="Cost per wear screen"
-                        width={280}
-                        height={580}
+                        width={220}
+                        height={455}
                         style={{ width: "100%", height: "auto" }}
                       />
                     </div>
                   </div>
                 ) : (
-                  <div className="max-w-[260px] sm:max-w-[340px] rounded-[2rem] overflow-hidden shadow-xl">
+                  <div className="max-w-[200px] sm:max-w-[260px] rounded-[2rem] overflow-hidden shadow-xl">
                     <Image
                       src={feature.image as string}
                       alt={feature.title}
-                      width={320}
-                      height={640}
+                      width={248}
+                      height={496}
                       style={{ width: "100%", height: "auto" }}
                     />
                   </div>
