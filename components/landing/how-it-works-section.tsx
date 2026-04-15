@@ -21,16 +21,16 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="py-20 bg-cream border-t border-foreground/10">
+    <section id="how-it-works" className="py-16 sm:py-20 bg-cream border-t border-foreground/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 sm:mb-12">
           <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">how it works.</span>
-          <h2 className="text-4xl sm:text-5xl font-black text-foreground mt-4 text-balance uppercase tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-black text-foreground mt-4 text-balance uppercase tracking-tight">
             Get Started in 3 Steps
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-8 lg:gap-12">
           {steps.map((step, index) => (
             <div key={index} className="relative">
               {/* Connector Line */}
@@ -40,11 +40,11 @@ export function HowItWorksSection() {
               
               <div className="flex flex-col items-center text-center">
                 {/* Phone Mockup - Border style */}
-                <div className="relative mb-8">
+                <div className="relative mb-6 sm:mb-8">
                   {/* Shadow layer */}
                   <div className="absolute inset-0 bg-foreground rounded-[1.5rem] translate-x-1.5 translate-y-1.5" />
                   {/* Phone frame */}
-                  <div className="relative rounded-[1.5rem] overflow-hidden w-48 h-80 bg-white border-2 border-foreground">
+                  <div className="relative rounded-[1.5rem] overflow-hidden w-44 h-72 sm:w-48 sm:h-80 bg-white border-2 border-foreground">
                     {/* Status Bar */}
                     <div className="bg-foreground text-white px-3 py-1.5 flex items-center justify-between text-[8px]">
                       <span>9:41</span>
@@ -62,10 +62,10 @@ export function HowItWorksSection() {
                 </div>
 
                 {/* Text Content */}
-                <h3 className="text-xl font-black text-foreground mb-3 uppercase tracking-tight">
+                <h3 className="text-2xl sm:text-xl font-black text-foreground mb-3 uppercase tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+                <p className="text-muted-foreground text-base sm:text-sm leading-relaxed max-w-xs">
                   {step.description}
                 </p>
               </div>

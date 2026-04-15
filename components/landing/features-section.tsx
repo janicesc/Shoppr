@@ -49,7 +49,7 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="py-20 bg-cream border-t border-foreground/10">
+    <section id="features" className="py-16 sm:py-20 bg-cream border-t border-foreground/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">features.</span>
@@ -58,21 +58,21 @@ export function FeaturesSection() {
           </h2>
         </div>
 
-        <div className="space-y-28">
+        <div className="space-y-20 sm:space-y-28">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-10 lg:gap-20 items-center`}
+              className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 sm:gap-10 lg:gap-20 items-center`}
             >
               {/* Content */}
               <div className="flex-1 lg:max-w-lg">
-                <div className={`w-20 h-20 ${feature.color} rounded-2xl flex items-center justify-center mb-7`}>
-                  <feature.icon className="w-10 h-10 text-foreground" />
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 ${feature.color} rounded-2xl flex items-center justify-center mb-5 sm:mb-7`}>
+                  <feature.icon className="w-8 h-8 sm:w-10 sm:h-10 text-foreground" />
                 </div>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-5 uppercase tracking-tight text-balance">
+                <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black text-foreground mb-4 sm:mb-5 uppercase tracking-tight text-balance">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground text-xl sm:text-2xl leading-relaxed max-w-xl">
+                <p className="text-muted-foreground text-base sm:text-2xl leading-relaxed max-w-xl">
                   {feature.description}
                 </p>
               </div>
@@ -80,9 +80,9 @@ export function FeaturesSection() {
               {/* Phone Mockup(s) */}
               <div className="flex-1 flex justify-center">
                 {feature.type === "double" && feature.images ? (
-                  <div className="flex gap-5 items-end">
+                  <div className="flex gap-3 sm:gap-5 items-end">
                     {/* Left Phone - Style Stats */}
-                    <div className="w-48 sm:w-56 rounded-[1.5rem] overflow-hidden shadow-xl">
+                    <div className="w-36 sm:w-56 rounded-[1.5rem] overflow-hidden shadow-xl">
                       <Image
                         src={feature.images[0]}
                         alt="Style stats screen"
@@ -92,7 +92,7 @@ export function FeaturesSection() {
                       />
                     </div>
                     {/* Right Phone - Cost per Wear */}
-                    <div className="w-48 sm:w-56 rounded-[1.5rem] overflow-hidden shadow-xl">
+                    <div className="w-36 sm:w-56 rounded-[1.5rem] overflow-hidden shadow-xl">
                       <Image
                         src={feature.images[1]}
                         alt="Cost per wear screen"
@@ -103,7 +103,7 @@ export function FeaturesSection() {
                     </div>
                   </div>
                 ) : (
-                  <div className="max-w-[300px] sm:max-w-[340px] rounded-[2rem] overflow-hidden shadow-xl">
+                  <div className="max-w-[260px] sm:max-w-[340px] rounded-[2rem] overflow-hidden shadow-xl">
                     <Image
                       src={feature.image as string}
                       alt={feature.title}

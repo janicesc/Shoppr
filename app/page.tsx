@@ -21,7 +21,7 @@ export default function Home() {
         }}
       />
       {/* Teal outer container with padding */}
-      <div className="relative p-4 md:p-6 lg:p-8">
+      <div className="relative p-2 sm:p-4 md:p-6 lg:p-8">
         {/* Cream inner content container */}
         <main className="bg-cream rounded-none md:rounded-lg overflow-hidden shadow-2xl">
           <Header />

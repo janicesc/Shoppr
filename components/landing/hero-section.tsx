@@ -50,14 +50,14 @@ export function HeroSection() {
     <section className="relative bg-cream overflow-hidden">
       <div className="grid lg:grid-cols-2">
         {/* Left Content - Cream background */}
-        <div className="px-8 md:px-12 lg:px-16 py-16 lg:py-24 flex flex-col justify-center">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] mb-6 text-foreground tracking-tight uppercase">
+        <div className="px-5 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-14 lg:py-24 flex flex-col justify-center">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black leading-[0.95] mb-5 sm:mb-6 text-foreground tracking-tight uppercase">
             Stop Buying.
             <br />
             Start Styling.
           </h1>
           
-          <p className="text-base text-muted-foreground max-w-sm mb-8 leading-relaxed">
+          <p className="text-[15px] sm:text-base text-muted-foreground max-w-sm mb-7 sm:mb-8 leading-relaxed">
             Upload your clothes. Build outfits. Get dressed with clarity. 
             Stop buying more — start styling smarter.
           </p>
@@ -65,19 +65,19 @@ export function HeroSection() {
           {/* Email input and waitlist CTA */}
           <div className="relative w-full max-w-[420px]">
             <div className="absolute inset-0 bg-foreground translate-x-2 translate-y-2 rounded-[10px]" />
-            <form onSubmit={handleSubmit} className="relative flex w-full">
+            <form onSubmit={handleSubmit} className="relative flex w-full flex-col sm:flex-row">
               <input
                 type="email"
                 placeholder="Enter your email address ..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 px-6 py-4 bg-cream border border-foreground border-r-0 rounded-l-[10px] text-foreground placeholder:text-foreground/50 focus:outline-none text-base"
+                className="flex-1 px-5 sm:px-6 py-3.5 sm:py-4 bg-cream border border-foreground sm:border-r-0 rounded-t-[10px] sm:rounded-t-none sm:rounded-l-[10px] text-foreground placeholder:text-foreground/50 focus:outline-none text-[15px] sm:text-base"
               />
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-4 bg-cream border border-foreground text-foreground font-bold uppercase tracking-wide text-sm hover:bg-pink hover:text-cream disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-r-[10px]"
+                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-cream border border-foreground text-foreground font-bold uppercase tracking-wide text-sm hover:bg-pink hover:text-cream disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-b-[10px] sm:rounded-b-none sm:rounded-r-[10px]"
               >
                 {isSubmitting ? "Joining..." : "Join Waitlist"}
               </button>
@@ -91,7 +91,7 @@ export function HeroSection() {
           {errorMessage && <p className="mt-4 text-sm font-medium text-[#c0392b]">{errorMessage}</p>}
 
           {/* App Store buttons */}
-          <div className="flex gap-3 mt-8">
+          <div className="flex flex-wrap gap-3 mt-7 sm:mt-8">
             <button className="flex items-center gap-2 bg-foreground text-cream px-4 py-2.5 rounded-lg hover:bg-foreground/90 transition-colors">
               <Apple className="w-5 h-5" />
               <div className="text-left">
@@ -110,7 +110,7 @@ export function HeroSection() {
         </div>
 
         {/* Right Content - Pink background with phone mockup */}
-        <div className="relative bg-pink min-h-[500px] lg:min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="relative bg-pink min-h-[420px] sm:min-h-[500px] lg:min-h-[600px] flex items-center justify-center overflow-hidden">
           {/* Yellow blob shapes */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-yellow rounded-full" />
           <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-yellow/60 rounded-full" />
@@ -120,7 +120,7 @@ export function HeroSection() {
             {/* Shadow layer */}
             <div className="absolute inset-0 bg-foreground rounded-[2rem] translate-x-2 translate-y-2" />
             {/* Phone frame */}
-            <div className="relative w-64 h-[520px] rounded-[2rem] overflow-hidden border-2 border-foreground">
+            <div className="relative w-52 sm:w-64 h-[430px] sm:h-[520px] rounded-[2rem] overflow-hidden border-2 border-foreground">
               <video
                 autoPlay
                 loop

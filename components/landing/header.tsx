@@ -7,13 +7,14 @@ import { Button } from "@/components/ui/button"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const closeMobileMenu = () => setMobileMenuOpen(false)
 
   return (
     <header className="sticky top-0 z-50 bg-cream border-b border-foreground/10">
-      <div className="flex items-center h-16">
+      <div className="flex items-center h-14 sm:h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center px-6 h-full border-r border-foreground/10">
-          <span className="font-bold text-xl tracking-tight text-foreground uppercase">Shoppr</span>
+        <Link href="/" className="flex items-center px-4 sm:px-6 h-full border-r border-foreground/10">
+          <span className="font-bold text-lg sm:text-xl tracking-tight text-foreground uppercase">Shoppr</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -44,7 +45,7 @@ export function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-4 ml-auto"
+          className="md:hidden px-4 py-3 ml-auto"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -56,16 +57,16 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden py-4 px-6 border-t border-foreground/10 bg-cream">
           <nav className="flex flex-col gap-4">
-            <Link href="#features" className="text-sm font-medium text-foreground uppercase tracking-wide">
+            <Link href="#features" onClick={closeMobileMenu} className="text-sm font-medium text-foreground uppercase tracking-wide">
               Features
             </Link>
-            <Link href="#how-it-works" className="text-sm font-medium text-foreground uppercase tracking-wide">
+            <Link href="#how-it-works" onClick={closeMobileMenu} className="text-sm font-medium text-foreground uppercase tracking-wide">
               How It Works
             </Link>
-            <Link href="#about" className="text-sm font-medium text-foreground uppercase tracking-wide">
+            <Link href="#about" onClick={closeMobileMenu} className="text-sm font-medium text-foreground uppercase tracking-wide">
               About
             </Link>
-            <Link href="#faq" className="text-sm font-medium text-foreground uppercase tracking-wide">
+            <Link href="#faq" onClick={closeMobileMenu} className="text-sm font-medium text-foreground uppercase tracking-wide">
               FAQ
             </Link>
             <div className="flex flex-col gap-2 pt-4 border-t border-foreground/10">

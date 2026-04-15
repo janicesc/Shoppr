@@ -50,9 +50,9 @@ export function CTASection() {
       {/* Horizontal split layout - Newsletter left, Contact cards right */}
       <div className="flex flex-col md:flex-row">
         {/* Left - Newsletter Section */}
-        <div className="flex-1 px-8 md:px-12 lg:px-16 py-12 lg:py-16">
+        <div className="flex-1 px-5 sm:px-8 md:px-12 lg:px-16 py-10 sm:py-12 lg:py-16">
           <h2 
-            className="text-3xl sm:text-4xl lg:text-[52px] font-bold text-[#222222] uppercase tracking-tight leading-[1.1] mb-10"
+            className="text-2xl sm:text-4xl lg:text-[52px] font-bold text-[#222222] uppercase tracking-tight leading-[1.1] mb-8 sm:mb-10"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
             Subscribe to Our
@@ -65,19 +65,19 @@ export function CTASection() {
             {/* Shadow layer for input */}
             <div className="absolute inset-0 bg-[#222222] translate-x-2 translate-y-2 rounded-[10px]" />
             {/* Input and button */}
-            <form onSubmit={handleSubmit} className="relative flex w-full">
+            <form onSubmit={handleSubmit} className="relative flex w-full flex-col sm:flex-row">
               <input
                 type="email"
                 placeholder="Enter your email address ..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 px-6 py-4 bg-[#FDF8F1] border border-[#222222] border-r-0 rounded-l-[10px] text-[#222222] placeholder:text-[#222222]/50 focus:outline-none text-base"
+                className="flex-1 px-5 sm:px-6 py-3.5 sm:py-4 bg-[#FDF8F1] border border-[#222222] sm:border-r-0 rounded-t-[10px] sm:rounded-t-none sm:rounded-l-[10px] text-[#222222] placeholder:text-[#222222]/50 focus:outline-none text-[15px] sm:text-base"
               />
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-4 bg-[#FF95C9] border border-[#222222] text-[#FDF8F1] font-bold uppercase tracking-wide text-sm hover:bg-teal disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-r-[10px]"
+                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#FF95C9] border border-[#222222] text-[#FDF8F1] font-bold uppercase tracking-wide text-sm hover:bg-teal disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-b-[10px] sm:rounded-b-none sm:rounded-r-[10px]"
               >
                 {isSubmitting ? "Submitting..." : "Subscribe"}
               </button>
@@ -92,7 +92,7 @@ export function CTASection() {
         </div>
 
         {/* Right - Contact Info Cards - always visible on right */}
-        <div className="w-full md:w-[380px] lg:w-[420px] flex flex-col border-l border-[#222222]">
+        <div className="w-full md:w-[380px] lg:w-[420px] flex flex-col border-t md:border-t-0 md:border-l border-[#222222]">
           {[
             { label: "Social Media" },
             { label: "Email Address" },
