@@ -4,6 +4,46 @@ import { useState } from "react"
 
 export function CTASection() {
   const [email, setEmail] = useState("")
+  const [showSuccess, setShowSuccess] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const trimmedEmail = email.trim()
+    if (!trimmedEmail || !trimmedEmail.includes("@")) {
+      setShowSuccess(false)
+      setErrorMessage("Please enter a valid email address.")
+      return
+    }
+
+    try {
+      setIsSubmitting(true)
+      setErrorMessage("")
+      setShowSuccess(false)
+
+      const response = await fetch("/api/newsletter-signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: trimmedEmail }),
+      })
+
+      const result = (await response.json()) as { ok?: boolean; error?: string }
+      if (!response.ok || !result.ok) {
+        setErrorMessage(result.error ?? "Something went wrong. Please try again.")
+        return
+      }
+
+      setShowSuccess(true)
+      setEmail("")
+    } catch {
+      setErrorMessage("Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <section className="bg-[#FDF8F1] border-t border-[#222222]">
@@ -25,19 +65,30 @@ export function CTASection() {
             {/* Shadow layer for input */}
             <div className="absolute inset-0 bg-[#222222] translate-x-2 translate-y-2 rounded-[10px]" />
             {/* Input and button */}
-            <div className="relative flex w-full">
+            <form onSubmit={handleSubmit} className="relative flex w-full">
               <input
                 type="email"
                 placeholder="Enter your email address ..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
                 className="flex-1 px-6 py-4 bg-[#FDF8F1] border border-[#222222] border-r-0 rounded-l-[10px] text-[#222222] placeholder:text-[#222222]/50 focus:outline-none text-base"
               />
-              <button className="px-8 py-4 bg-[#FF95C9] border border-[#222222] text-[#FDF8F1] font-bold uppercase tracking-wide text-sm hover:bg-[#FF95C9]/90 transition-colors whitespace-nowrap rounded-r-[10px]">
-                Subscribe
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="px-8 py-4 bg-[#FF95C9] border border-[#222222] text-[#FDF8F1] font-bold uppercase tracking-wide text-sm hover:bg-teal disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-r-[10px]"
+              >
+                {isSubmitting ? "Submitting..." : "Subscribe"}
               </button>
-            </div>
+            </form>
           </div>
+          {showSuccess && (
+            <p className="mt-4 text-sm font-medium text-[#2d5a50]">
+              You&apos;re in. Get ready to style smarter.
+            </p>
+          )}
+          {errorMessage && <p className="mt-4 text-sm font-medium text-[#c0392b]">{errorMessage}</p>}
         </div>
 
         {/* Right - Contact Info Cards - always visible on right */}

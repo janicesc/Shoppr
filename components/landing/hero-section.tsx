@@ -5,6 +5,46 @@ import { Apple, Play } from "lucide-react"
 
 export function HeroSection() {
   const [email, setEmail] = useState("")
+  const [showSuccess, setShowSuccess] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const trimmedEmail = email.trim()
+    if (!trimmedEmail || !trimmedEmail.includes("@")) {
+      setShowSuccess(false)
+      setErrorMessage("Please enter a valid email address.")
+      return
+    }
+
+    try {
+      setIsSubmitting(true)
+      setErrorMessage("")
+      setShowSuccess(false)
+
+      const response = await fetch("/api/newsletter-signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: trimmedEmail }),
+      })
+
+      const result = (await response.json()) as { ok?: boolean; error?: string }
+      if (!response.ok || !result.ok) {
+        setErrorMessage(result.error ?? "Something went wrong. Please try again.")
+        return
+      }
+
+      setShowSuccess(true)
+      setEmail("")
+    } catch {
+      setErrorMessage("Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <section className="relative bg-cream overflow-hidden">
@@ -23,21 +63,32 @@ export function HeroSection() {
           </p>
 
           {/* Email input and waitlist CTA */}
-          <div className="relative max-w-xl w-full">
+          <div className="relative w-full max-w-[420px]">
             <div className="absolute inset-0 bg-foreground translate-x-2 translate-y-2 rounded-[10px]" />
-            <div className="relative flex w-full">
+            <form onSubmit={handleSubmit} className="relative flex w-full">
               <input
                 type="email"
                 placeholder="Enter your email address ..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
                 className="flex-1 px-6 py-4 bg-cream border border-foreground border-r-0 rounded-l-[10px] text-foreground placeholder:text-foreground/50 focus:outline-none text-base"
               />
-              <button className="px-8 py-4 bg-cream border border-foreground text-foreground font-bold uppercase tracking-wide text-sm hover:bg-cream/90 transition-colors whitespace-nowrap rounded-r-[10px]">
-                Join Waitlist
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="px-8 py-4 bg-cream border border-foreground text-foreground font-bold uppercase tracking-wide text-sm hover:bg-pink hover:text-cream disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-r-[10px]"
+              >
+                {isSubmitting ? "Joining..." : "Join Waitlist"}
               </button>
-            </div>
+            </form>
           </div>
+          {showSuccess && (
+            <p className="mt-4 text-sm font-medium text-teal">
+              You&apos;re in. Get ready to style smarter.
+            </p>
+          )}
+          {errorMessage && <p className="mt-4 text-sm font-medium text-[#c0392b]">{errorMessage}</p>}
 
           {/* App Store buttons */}
           <div className="flex gap-3 mt-8">
