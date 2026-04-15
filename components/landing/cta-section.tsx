@@ -77,7 +77,7 @@ export function CTASection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#FF95C9] border border-[#222222] text-[#FDF8F1] font-bold uppercase tracking-wide text-sm hover:bg-teal disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-b-[10px] sm:rounded-b-none sm:rounded-r-[10px]"
+                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#FF95C9] border border-[#222222] text-[#FDF8F1] font-bold uppercase tracking-wide text-sm hover:bg-teal active:bg-teal focus-visible:bg-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#222222]/30 disabled:opacity-70 disabled:cursor-not-allowed transition-colors whitespace-nowrap rounded-b-[10px] sm:rounded-b-none sm:rounded-r-[10px]"
               >
                 {isSubmitting ? "Submitting..." : "Subscribe"}
               </button>
