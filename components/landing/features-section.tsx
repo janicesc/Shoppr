@@ -58,21 +58,21 @@ export function FeaturesSection() {
           </h2>
         </div>
 
-        <div className="space-y-24">
+        <div className="space-y-28">
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 lg:gap-16 items-center`}
+              className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-10 lg:gap-20 items-center`}
             >
               {/* Content */}
-              <div className="flex-1 lg:max-w-md">
-                <div className={`w-14 h-14 ${feature.color} rounded-2xl flex items-center justify-center mb-6`}>
-                  <feature.icon className="w-7 h-7 text-foreground" />
+              <div className="flex-1 lg:max-w-lg">
+                <div className={`w-20 h-20 ${feature.color} rounded-2xl flex items-center justify-center mb-7`}>
+                  <feature.icon className="w-10 h-10 text-foreground" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-black text-foreground mb-4 uppercase tracking-tight">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-5 uppercase tracking-tight text-balance">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                <p className="text-muted-foreground text-xl sm:text-2xl leading-relaxed max-w-xl">
                   {feature.description}
                 </p>
               </div>
@@ -80,9 +80,9 @@ export function FeaturesSection() {
               {/* Phone Mockup(s) */}
               <div className="flex-1 flex justify-center">
                 {feature.type === "double" && feature.images ? (
-                  <div className="flex gap-4 items-end">
+                  <div className="flex gap-5 items-end">
                     {/* Left Phone - Style Stats */}
-                    <div className="w-44 sm:w-52 rounded-[1.5rem] overflow-hidden shadow-xl">
+                    <div className="w-48 sm:w-56 rounded-[1.5rem] overflow-hidden shadow-xl">
                       <Image
                         src={feature.images[0]}
                         alt="Style stats screen"
@@ -92,7 +92,7 @@ export function FeaturesSection() {
                       />
                     </div>
                     {/* Right Phone - Cost per Wear */}
-                    <div className="w-44 sm:w-52 rounded-[1.5rem] overflow-hidden shadow-xl">
+                    <div className="w-48 sm:w-56 rounded-[1.5rem] overflow-hidden shadow-xl">
                       <Image
                         src={feature.images[1]}
                         alt="Cost per wear screen"
@@ -103,7 +103,7 @@ export function FeaturesSection() {
                     </div>
                   </div>
                 ) : (
-                  <div className="max-w-[280px] sm:max-w-[320px] rounded-[2rem] overflow-hidden shadow-xl">
+                  <div className="max-w-[300px] sm:max-w-[340px] rounded-[2rem] overflow-hidden shadow-xl">
                     <Image
                       src={feature.image as string}
                       alt={feature.title}

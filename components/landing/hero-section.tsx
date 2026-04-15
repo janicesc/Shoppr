@@ -1,23 +1,20 @@
 "use client"
 
+import { useState } from "react"
 import { Apple, Play } from "lucide-react"
 
 export function HeroSection() {
+  const [email, setEmail] = useState("")
+
   return (
     <section className="relative bg-cream overflow-hidden">
       <div className="grid lg:grid-cols-2">
         {/* Left Content - Cream background */}
         <div className="px-8 md:px-12 lg:px-16 py-16 lg:py-24 flex flex-col justify-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.95] mb-6 text-foreground tracking-tight uppercase">
-            Style More
+            Stop Buying.
             <br />
-            <span className="inline-flex items-center gap-2">
-              With
-              <span className="text-teal text-4xl sm:text-5xl lg:text-6xl">✿</span>
-              What
-            </span>
-            <br />
-            You Own
+            Start Styling.
           </h1>
           
           <p className="text-base text-muted-foreground max-w-sm mb-8 leading-relaxed">
@@ -25,14 +22,21 @@ export function HeroSection() {
             Stop buying more — start styling smarter.
           </p>
 
-          {/* Button with angled shadow */}
-          <div className="relative w-fit group">
-            {/* Shadow layer */}
-            <div className="absolute inset-0 bg-foreground translate-x-1 translate-y-1 rounded-lg" />
-            {/* Button */}
-            <button className="relative bg-cream border-2 border-foreground px-8 py-3 rounded-lg font-bold text-sm uppercase tracking-wide hover:translate-x-0.5 hover:translate-y-0.5 transition-transform">
-              Join Newsletter
-            </button>
+          {/* Email input and waitlist CTA */}
+          <div className="relative max-w-xl w-full">
+            <div className="absolute inset-0 bg-foreground translate-x-2 translate-y-2 rounded-[10px]" />
+            <div className="relative flex w-full">
+              <input
+                type="email"
+                placeholder="Enter your email address ..."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 px-6 py-4 bg-cream border border-foreground border-r-0 rounded-l-[10px] text-foreground placeholder:text-foreground/50 focus:outline-none text-base"
+              />
+              <button className="px-8 py-4 bg-cream border border-foreground text-foreground font-bold uppercase tracking-wide text-sm hover:bg-cream/90 transition-colors whitespace-nowrap rounded-r-[10px]">
+                Join Waitlist
+              </button>
+            </div>
           </div>
 
           {/* App Store buttons */}
